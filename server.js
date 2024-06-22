@@ -26,7 +26,7 @@ const User = mongoose.model('user', userSchema);
 app.post('/calculate', async (req, res) => {
   const { user1, user2 } = req.body;
   console.log("Received input:", user1, user2);
-
+  // hello
   // Check if the combination of user1 and user2 already exists in the database
   let existingUser = await User.findOne({ user1, user2 });
 
