@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://paramjeetrtr:S8lqtCI4KYobeU7H@cluster0.wtgnyxg.mongodb.net/Primary', {
+mongoose.connect('mongodb+srv://paramjeetrtr:rtzcJBGJqtY0GFi0@cluster0.wtgnyxg.mongodb.net/Primary?retryWrites=true&w=majority&appName=Cluster0', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
