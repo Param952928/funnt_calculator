@@ -2,13 +2,14 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+require('dotenv').config();
 
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://paramjeetrtr:rtzcJBGJqtY0GFi0@cluster0.wtgnyxg.mongodb.net/Primary?retryWrites=true&w=majority&appName=Cluster0', {
+mongoose.connect(process.env.URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
