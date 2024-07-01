@@ -18,17 +18,20 @@ mongoose.connect(process.env.URL, {
 const userSchema = new mongoose.Schema({
   user1: String,
   user2: String,
-  cretedAt: Date,
+  createdAt: {
+    type: Date,
+    default: Date.now, // Automatically set the current date when a new document is created
+  },
   percentage: Number,
 });
 
-const User = mongoose.model('user', userSchema);
+const User = mongoose.model('User', userSchema);
 
 // Route to handle love calculation and saving details
 app.post('/calculate', async (req, res) => {
   const { user1, user2 } = req.body;
   console.log("Received input:", user1, user2);
-  // hello
+
   // Check if the combination of user1 and user2 already exists in the database
   let existingUser = await User.findOne({ user1, user2 });
 
@@ -46,7 +49,6 @@ app.post('/calculate', async (req, res) => {
 
   // Save to MongoDB
   const newUser = new User({ user1, user2, percentage });
-  newUser.createdAt = new Date()
   await newUser.save();
 
   res.json({ percentage });
