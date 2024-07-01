@@ -18,6 +18,7 @@ mongoose.connect(process.env.URL, {
 const userSchema = new mongoose.Schema({
   user1: String,
   user2: String,
+  cretedAt: new Date(),
   percentage: Number,
 });
 
